@@ -24,4 +24,4 @@ We see this script might run on the 4747 port. So we can check in our browser. \
 Indeed we have an apache server serving this file on this port. The script loads an `x` param from the url. \
 Also the `print` function calls `echo` with the `x` parameter value. As we said before, the script will be executed as flag04. \
 With this, we can execute whatever command we want by using a subshell. \
-So we can do `http://VM_IP:4747?x=$(getflag)` and the flag is printed on the page.
+So we can do `http://VM_IP:4747?x='$(getflag)'` and the flag is printed on the page.
