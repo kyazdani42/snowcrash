@@ -44,7 +44,7 @@ $ netstat -tulpn | grep 4646
 tcp6       0      0 :::4646                 :::*                    LISTEN      -
 ```
 So by quickly analyzing this perl script, we see that we can pass in an `x` parameter which will be uppercased and every space/newline and everything after it will be removed. \
-Then it will be used inside the shell execution `egrep "^OUR_PARAM" /tmp/xd 2>&1`. We might wan't to try executing `getflag` somehow: \
+Then it will be used inside the shell execution `egrep "^OUR_PARAM" /tmp/xd 2>&1`. We might want to execute `getflag` somehow: \
 So we will need to create a script in uppercase in /tmp, and with the help of a subshell and globbing we will be able to execute it:
 ```shell
 $ cat > /tmp/GETFLAG <<EOF

